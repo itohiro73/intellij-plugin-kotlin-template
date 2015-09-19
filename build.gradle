@@ -1,0 +1,42 @@
+buildscript {
+    ext.kotlin_version = '0.13.1513'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+plugins {
+    id "org.jetbrains.intellij" version "0.0.20"
+}
+
+apply plugin: 'org.jetbrains.intellij'
+apply plugin: 'kotlin'
+
+intellij {
+    version '14.1.4'
+    plugins 'coverage'
+    pluginName 'sample'
+}
+
+group 'sample'
+version '0.0.1-SNAPSHOT'
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.5'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+
+sourceSets {
+    main.java.srcDirs += 'src/main/kotlin'
+}
