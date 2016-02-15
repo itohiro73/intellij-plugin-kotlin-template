@@ -1,5 +1,5 @@
 buildscript {
-    ext.kotlin_version = '0.13.1513'
+    ext.kotlin_version = '1.0.0'
     repositories {
         mavenCentral()
     }
@@ -16,7 +16,7 @@ apply plugin: 'org.jetbrains.intellij'
 apply plugin: 'kotlin'
 
 intellij {
-    version '14.1.4'
+    version '15.0.3'
     plugins 'coverage'
     pluginName 'sample'
 }
